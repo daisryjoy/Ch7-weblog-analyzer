@@ -1,8 +1,8 @@
 /**
  * Read web server data and analyse hourly access patterns.
  * 
- * @author David J. Barnes and Michael Kölling.
- * @version    2016.02.29
+ * @author Daisry Joy Ladignon 
+ * @version    2018.10.28
  */
 public class LogAnalyzer
 {
@@ -11,10 +11,11 @@ public class LogAnalyzer
     // Use a LogfileReader to access the data.
     private LogfileReader reader;
 
-    /**
+    /** 
      * Create an object to analyze hourly web accesses.
+     * @param name of the log file
      */
-    public LogAnalyzer()
+    public LogAnalyzer(String name)
     { 
         // Create the array object to hold the hourly
         // access counts.
@@ -22,6 +23,56 @@ public class LogAnalyzer
         // Create the reader to obtain the data.
         reader = new LogfileReader();
     }
+    
+    /**
+     * Counts the number of accesses. 
+     */
+    public int numberOfAccesses(){
+        int num_counts = 0;
+            for(int i = 0; i < hourCounts.length; i++){
+                num_counts += hourCounts.length;
+            }      
+        return num_counts; 
+    }
+    
+    /**
+     * Finds which hour is the busiest hour
+     * @return returns int value of the busiest hour 
+     */
+    public int busiestHour(){
+        int busiestHour=0;
+        for(int i = 0; i < hourCounts.length; i++){
+            if (busiestHour > hourCounts[i]){
+                busiestHour = busiestHour; 
+            }
+        }
+        return busiestHour;
+    }
+    
+    /**
+     * Finds which hour is the quietest hour
+     * @return returns the int value of the quietest hour 
+     */
+    public int quietestHour(){
+        int quietestHour = hourCounts[0];
+        for(int i = 0; i < hourCounts.length; i++){
+            if(quietestHour < hourCounts[i] && hourCounts[i] > 0){
+                quietestHour = hourCounts[i];
+            }
+    }
+    return quietestHour;
+     }
+    
+     /**
+      * 
+      */
+    public int busiestTwoHour(){
+        int busiestOne = 0;
+        int busiestTwo = 0; 
+        for(int i = 0; i < hourCounts.length; 
+        
+    }
+     
 
     /**
      * Analyze the hourly access data from the log file.
@@ -55,4 +106,5 @@ public class LogAnalyzer
     {
         reader.printData();
     }
+    
 }
