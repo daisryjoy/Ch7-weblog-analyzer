@@ -4,8 +4,8 @@ import java.util.*;
 /**
  * A class for creating log files of random data.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version    2016.02.29
+ * @author Daisry Joy Ladignon 
+ * @version    2018.10.28
  */
 public class LogfileCreator
 {
